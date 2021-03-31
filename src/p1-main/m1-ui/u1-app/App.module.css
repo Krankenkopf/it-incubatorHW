@@ -1,0 +1,49 @@
+.appWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+            'h h h'
+            'p c n'
+            'f f f'
+
+}
+
+.button {
+    margin: 10px;
+    font-size: 30pt;
+    border: 1px solid lightcyan;
+    background-color: lightcyan;
+    color: lavender;
+}
+.next {
+    grid-area: n;
+}
+.prev {
+    grid-area: p;
+}
+.button:hover {
+    border: 2px solid lavender;
+    background-color: lavender;
+    color: #0f0f0f;
+}
+.button:active {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+}
+.button:focus {
+    outline: none;
+}
+
+
+.hwWrapper {
+    grid-area: c;
+}
+
+.header {
+    grid-area: h;
+    text-align: center;
+}

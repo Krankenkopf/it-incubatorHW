@@ -1,0 +1,138 @@
+/*css вырвиглаз*/
+.startButton {
+    margin-left: 20px;
+    border: 2px solid #0f0f0f;
+    border-radius: 21px;
+    height: 30px;
+    background-color: #0f0f0f;
+    color: white;
+    font-weight: bold;
+}
+
+.startButton:hover {
+    border: 2px solid yellow;
+    background-color: yellow;
+    color: #0f0f0f;
+}
+.startButton:active {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+}
+.startButton:focus {
+    outline: none;
+}
+
+.mainBox {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.messageMainBox {
+    margin: 20px 0 0 20px;
+    display: grid;
+    background-color: ghostwhite;
+    max-width: 400px;
+    min-height: 100px;
+    grid-template-rows: 1fr 127px;
+    grid-template-columns: 30% 10px 70%;
+    grid-template-areas:
+    "ntng ntng message"
+    "ava arrow message";
+    border: 1px solid darkslategray;
+    border-radius: 30px;
+
+}
+
+.messageAvaBox{
+    grid-area: ava;
+}
+
+.messageBox {
+    grid-area: message;
+    background-color: darkslategray;
+    margin: 10px 20px 10px 0;
+    padding: 2%;
+    font-family: 'Courier New', monospace;
+    border: 1px solid darkslategray;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.timeFrame {
+    position: relative;
+    padding: 2pt;
+    margin: 12px 40px auto auto  ;
+    grid-area: message;
+    display: inline;
+    color: black;
+    font-size: 8pt;
+    background-color: ghostwhite;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.ava {
+    margin: 10px 10px 0 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    border: 2px solid black;
+    object-fit: cover;
+    object-position: 0 -2px;
+}
+
+.name {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 20pt;
+    font-weight: bold;
+    border-radius: 20px;
+    color: yellow;
+    background-color: #0f0f0f;
+}
+
+.message {
+    margin-top: 5px;
+    display: table;
+    padding: 5px 15px 5px 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 12pt;
+    font-weight: bold;
+    border-radius: 20px;
+    color: yellow;
+    background-color: #0f0f0f;
+}
+
+.arrow {
+    margin: 96px -4px 10px -8px;
+    grid-area: arrow;
+    background-color: darkslategray;
+    border-bottom: 1px solid darkslategray;
+    height: 20px;
+}
+
+.arrowL2 {
+    position: relative;
+    margin: 0 1px -20px 0;
+    height: 20px;
+    border-right: 1px solid darkslategray;
+}
+
+.arrowL1 {
+    position: relative;
+    background-color: ghostwhite;
+    margin: -10px 3px 0 0;
+    border-right: 1px solid darkslategray;
+    border-bottom: 1px solid darkslategray;
+    border-bottom-right-radius: 100px;
+    height: 20px;
+}
+
+.image {
+    padding: 2%;
+    max-width: 200px;
+}
