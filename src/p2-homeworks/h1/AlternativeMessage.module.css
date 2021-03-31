@@ -1,0 +1,113 @@
+.mainBox {
+    max-width: 700px;
+    margin: 0 auto;
+   /* position: relative;*/
+}
+
+.messageMainBox {
+    position: relative;
+    left: 270px;
+    margin: 20px -10px 0 0;
+    display: grid;
+    background-color: ghostwhite;
+    max-width: 400px;
+    min-height: 100px;
+    grid-template-rows: 1fr 127px;
+    grid-template-columns: 70% 10px 30%;
+    grid-template-areas:
+    "message ntng ntng"
+    "message arrow ava";
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.messageAvaBox{
+    grid-area: ava;
+    margin-right: 20px;
+}
+
+.messageBox {
+    grid-area: message;
+    background-color: black;
+    margin: 10px 10px 10px 10px;
+    padding: 2%;
+    font-family: 'Courier New', monospace;
+    border: 1px solid black;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.timeFrame {
+    position: relative;
+    padding: 2pt;
+    margin: 12px 30px auto auto  ;
+    grid-area: message;
+    display: inline;
+    color: black;
+    font-size: 8pt;
+    background-color: ghostwhite;
+    border: 2px solid darkslategray;
+    border-radius: 10px;
+}
+
+.ava {
+    margin: 10px 10px 0 -2px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    border: 2px solid black;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.name {
+    position: relative;
+    display: inline;
+    margin: 0 10px auto 10px;
+    padding: 0 10px 0 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 20pt;
+    font-weight: bold;
+    border-radius: 20px;
+    color: yellow;
+    background-color: #0f0f0f;
+}
+
+.message {
+    margin-top: 5px;
+    display: inline-block;
+    padding: 5px 15px 5px 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 12pt;
+    font-weight: bold;
+    border-radius: 20px;
+    color: yellow;
+    background-color: #0f0f0f;
+}
+
+.arrow {
+    margin: 96px 2px 10px -11px;
+    grid-area: arrow;
+    background-color: black;
+    border-bottom: 1px solid black;
+    height: 20px;
+}
+
+.arrowL2 {
+    position: relative;
+    margin: 0 1px -20px 0;
+    height: 20px;
+    border-left: 1px solid black;
+}
+
+.arrowL1 {
+    position: relative;
+    background-color: ghostwhite;
+    margin: -10px -2px 1px 0;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 100px;
+    height: 20px;
+}
+
