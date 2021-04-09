@@ -1,13 +1,14 @@
 .mainBox {
     display: grid;
-    grid-template-rows: 1fr 40px;
+    grid-template-rows: 1fr 30px 40px;
     grid-template-areas:
-        'l'
-        'p';
+        'list'
+        'time'
+        'priority';
     margin: 10px auto;
     padding: 1px;
     max-width: 400px;
-    height: 315px;
+    min-height: 418px;
     background-color: darkslategray;
     border-radius: 10px;
 }
@@ -15,10 +16,15 @@
 .mainBox button {
     cursor: pointer;
     position: relative;
-    margin: 0 auto 0 0;
+    margin: 0 auto 2% 0;
+    padding: 1% 1%;
     width: 25%;
     font-size: 14pt;
     border-radius: 5px;
+}
+
+.mainBox button:focus {
+    outline: none;
 }
 
 .buttonAll {
@@ -54,18 +60,24 @@
 }
 
 .buttonsBlock {
-    grid-area: p;
+    grid-area: priority;
     position: relative;
     margin: auto 2%;
 }
 
-.affairsBlock {
-    grid-area: l;
+.timemessage {
+    grid-area: time;
+    padding: 0 2% 0 2%;
+    margin: auto 0;
 }
 
-.affair {
+.affairsBlock {
+    grid-area: list;
+}
+
+.altAffair {
     display: grid;
-    grid-template-columns: 1fr 30px;
+    grid-template-columns: 1fr 60px;
     grid-template-areas: 'a b';
     grid-area: a;
     margin: 2%;
@@ -76,7 +88,19 @@
     font-weight: bold;
 }
 
-.affair button {
+.aaa {
+    background-color: red;
+}
+
+.aa {
+    background-color: yellow;
+}
+
+.a{
+    background-color: green;
+}
+
+.altAffair button {
     cursor: pointer;
     grid-area: b;
     width: 30px;
@@ -88,20 +112,4 @@
     background-color: red;
     border-radius: 20px;
     border-width: 1px;
-}
-
-.affair button:focus {
-    outline: none;
-}
-
-.affair button:hover {
-
-    border: 1px solid darkred;
-    background-color: orangered;
-    color: #0f0f0f;
-}
-.affair button:active {
-    border: 1px ridge red;
-    background-color: red;
-    color: white;
 }

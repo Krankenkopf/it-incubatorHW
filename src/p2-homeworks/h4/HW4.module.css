@@ -1,13 +1,49 @@
 .blue {
     border-bottom: 5px solid blue;
 }
+.unseen {
+    opacity: 0.1;
+}
 
 .column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin: 5% 5%;
+    padding: 5%;
+    background-color: lavender;
+    border-radius: 10px;
 }
 
 .testSpanError {
     color: blue;
+}
+
+.red {
+    color: red
+}
+
+.sometitle {
+    margin: 0 0 1em;
+    font-size: 16px;
+}
+
+.expressionAnswerArea {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr 50%;
+    grid-template-areas: 'input button'
+    'freespace';
+    max-height: 40px;
+    margin-bottom: 2em;
+
+}
+
+.expressionAnswerArea input {
+    grid-area: input;
+}
+
+.expressionAnswerArea button {
+    grid-area: button;
+    margin: 0 0 0 1em;
 }

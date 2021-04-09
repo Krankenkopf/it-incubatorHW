@@ -50,7 +50,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
 
     return (
         <>
-            {editMode
+           {/* {editMode
                 ? (
                     <SuperInputText
                         autoFocus // пропсу с булевым значением не обязательно указывать true
@@ -66,11 +66,11 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
 
                         {...restSpanProps}
                     >
-                        {/*если нет захардкодженного текста для спана, то значение инпута*/}
+                        если нет захардкодженного текста для спана, то значение инпута
                         {children || restProps.value}
                     </span>
                 )
-            }
+            }*/}
         </>
     )
 }

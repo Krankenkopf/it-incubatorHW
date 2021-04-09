@@ -1,12 +1,27 @@
-.superInput {
-
+.input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0 0 2em;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 2em;
+    background: #fff;
+    resize: none;
+    outline: none;
+}
+.input[type="text"]:focus {
+    border-color: #00bafa;
 }
 
-.errorInput {
-    border: 3px solid lime;
-    background: red;
+.errorInput[type="text"] {
+    border: 2px solid red;
+    background: #fff;
 }
 
 .error {
+    width: 100%;
     color: red;
+    font-size: 0.8em;
+    margin: -2.3em 0 1em 6%;
 }

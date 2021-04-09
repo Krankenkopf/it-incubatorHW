@@ -1,18 +1,18 @@
-import React from 'react'
-import Header from './Header'
-import Routes from './Routes'
+import React, {useState} from 'react'
 
-function HW5() {
+const HW5: React.FC<any> = () => {
+    const [dots, setDot] = useState<string>('')
+    let currentDots = dots
+    const setCurrentDot = () => {
+        setDot(currentDots + '.')
+    }
+    dots.length < 4? setTimeout(setCurrentDot, 500) : setDot('')
     return (
-        <div>
-            {/*в gh-pages лучше работает HashRouter*/}
-            {/*<HashRouter>*/}
-
-            <Header/>
-
-            <Routes/>
-
-            {/*</HashRouter>*/}
+        <div style={{   margin: '5% 5%',
+            fontWeight: 'bold',
+            minHeight: '65vmin',
+            fontSize: '40px'}}>
+            Nothing happens here{dots}
         </div>
     )
 }

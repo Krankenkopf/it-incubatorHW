@@ -1,13 +1,27 @@
 import React, {useState} from 'react'
 import Affairs from './Affairs'
+import AlternativeAffairs from "./AlternativeAffairs";
+import classes from "../h1/Message.module.css";
+import {HW2Type} from "../../p3-bicycleStore/store";
 
 // types
-export type AffairPriorityType = any // need to fix any
-export type AffairType = any // need to fix any
+type PropsType = {
+    state: any
+    hw2start: () => void
+    filterAffairs: (arg0: number| string) => void
+    changePriority: (arg0: number, arg1: number) => void
+    deleteAffair: (arg0: number) => void
+}
+export type AffairPriorityType = string // needed to be fixed
+export type AffairType = { // needed to be fixed
+    _id: number
+    name: string
+    priority: string
+}
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
-const defaultAffairs: any = [ // need to fix any
+const defaultAffairs: Array<AffairType> = [ // needed to be fixed
     {_id: 1, name: 'React', priority: 'high'},
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
@@ -16,36 +30,42 @@ const defaultAffairs: any = [ // need to fix any
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: any, filter: any): any => { // need to fix any
+export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => { // needed to be fixed
     if (filter === 'all') return affairs
-    else return // need to fix
+    else return affairs.filter((a: AffairType) => a.priority === filter)// needed to be fixed
 }
-export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
-    return // need to fix
+export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => { // needed to be fixed
+    return affairs.filter((a: AffairType) => a._id !== _id)// needed to be fixed
 }
 
-function HW2() {
-    const [affairs, setAffairs] = useState<any>(defaultAffairs) // need to fix any
+function HW2(props: PropsType) {
+    const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // needed to be fixed
     const [filter, setFilter] = useState<FilterType>('all')
-
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: any) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
-
+    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // needed to be fixed
+    let start = () => {
+        return props.hw2start()
+    }
     return (
         <div>
             <hr/>
             homeworks 2
-
-            {/*should work (должно работать)*/}
+            {/*may be will work*/}
             <Affairs
                 data={filteredAffairs}
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
             />
-
             <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeAffairs/>*/}
+            {props.state.hw2isstarted
+                ? <AlternativeAffairs data={props.state.filteredAffairs}
+                                      estTime={props.state.estTime}
+                                      isCodingPresents={props.state.isCodingPresents}
+                                      filterAffairs={props.filterAffairs}
+                                      changePriority={props.changePriority}
+                                      deleteAffair={props.deleteAffair}/>
+                : <button className={classes.startButton} onClick={start}> Когда я найду работу??77 </button>}
+
             <hr/>
         </div>
     )

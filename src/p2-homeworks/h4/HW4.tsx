@@ -1,12 +1,21 @@
 import React, {ChangeEvent, useState} from 'react'
 import SuperInputText from './common/c1-SuperInputText/SuperInputText'
-import s from './HW4.module.css'
+import classes from './HW4.module.css'
 import SuperButton from './common/c2-SuperButton/SuperButton'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
+import Alternative from './Alternative'
+import {HW4Type} from "../../p3-bicycleStore/store";
 
-function HW4() {
+type PropsType = {
+    state: any
+    hw4start: () => void
+    dispatch: (arg0: string) => void
+}
+
+const HW4: React.FC<PropsType> = ({state, hw4start, dispatch}) => {
     const [text, setText] = useState<string>('')
-    const error = text ? '' : 'error'
+    const [text2, setText2] = useState<string>('')
+    const error = text ? '' : 'Error'
 
     const showAlert = () => {
         if (error) {
@@ -15,7 +24,6 @@ function HW4() {
             alert(text) // если нет ошибки показать текст
         }
     }
-
     const [checked, setChecked] = useState<boolean>(false)
     const testOnChange = (e: ChangeEvent<HTMLInputElement>) => setChecked(e.currentTarget.checked)
 
@@ -24,28 +32,32 @@ function HW4() {
             <hr/>
             homeworks 4
 
-            <div className={s.column}>
+            <div className={classes.column}>
                 <SuperInputText
                     value={text}
                     onChangeText={setText}
                     onEnter={showAlert}
                     error={error}
-                    // spanClassName={s.testSpanError}
+                    spanClassName={classes.testSpanError}
                 />
 
                 <SuperInputText
-                    className={s.blue} // проверьте, рабоет ли смешивание классов
+                    className={classes.blue}// проверьте, работает ли смешивание классов (должно, но нет)
+                    value={text2}
+                    onChangeText={setText2}
                 />
 
                 {/*----------------------------------------------------*/}
 
-                <SuperButton>
+                <SuperButton className={classes.button}
+                             onClick={showAlert}>
                     default
                 </SuperButton>
 
                 <SuperButton
                     red // пропсу с булевым значением не обязательно указывать true
-                    onClick={showAlert}
+                    onClick={() => {setText('')}}
+                    disabled={!text}
                 >
                     delete {/*// название кнопки попадёт в children*/}
                 </SuperButton>
@@ -59,16 +71,26 @@ function HW4() {
                 <SuperCheckbox
                     checked={checked}
                     onChangeChecked={setChecked}
+                    hw4start={hw4start}
                 >
-                    some text {/*// этот текст попадёт в children*/}
+                    {checked ? 'You are subscribed' : 'Subscribe to our channel! Please-please!'} {/*// этот текст попадёт в children*/}
                 </SuperCheckbox>
 
                 {/*// onChange тоже должен работать*/}
-                <SuperCheckbox checked={checked} onChange={testOnChange}/>
+                <SuperCheckbox checked={checked}
+                               onChange={testOnChange}
+                               alt={classes.unseen}
+                               hw4start={hw4start}
+                >
+                    {checked ? 'You have allowed spam mailing to your email ;)' : 'This title is almost unseen'}
+                </SuperCheckbox>
             </div>
 
             <hr/>
-            {/*для личного творчества, могу проверить*/}
+            {state.hw4isstarted
+                ? <Alternative state={state}
+                               dispatch={dispatch}/>
+                : ''}
             {/*<AlternativeSuperInputText/>*/}
             {/*<AlternativeSuperButton/>*/}
             {/*<AlternativeSuperCheckbox/>*/}

@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import Greeting from './Greeting'
+import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
-    users: any // need to fix any
-    addUserCallback: any // need to fix any
+    users: Array<UserType> // needed to be fixed
+    addUserCallback: (arg0: string) => void // needed to be fixed
 }
 
 // более простой и понятный для новичков
@@ -12,18 +13,23 @@ type GreetingContainerPropsType = {
 // более современный и удобный для про :)
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<any>('') // need to fix any
-    const [error, setError] = useState<any>('') // need to fix any
-
-    const setNameCallback = (e: any) => { // need to fix any
-        setName('') // need to fix
+    const [name, setName] = useState<string>('') // needed to be fixed
+    const [error, setError] = useState<string>('') // needed to be fixed
+    const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => { // needed to be fixed
+        setName(e.currentTarget.value) // needed to be fixed
+        setError('')
     }
     const addUser = () => {
-        alert(`Hello  !`) // need to fix
+        let regExp = /^[A-Za-z']+$/
+        if (name.match(regExp)) {
+            alert(`Hello ${name}!`) // needed to be fixed
+            addUserCallback(name)
+        } else if (name.match(/[ ]/g)) setError('Do it again. But without space')
+        else setError('Invalid value. Try enter common human name!')
+        setName('')
     }
 
-    const totalUsers = 0 // need to fix
-
+    const totalUsers = users.length // needed to be fixed
     return (
         <Greeting
             name={name}
