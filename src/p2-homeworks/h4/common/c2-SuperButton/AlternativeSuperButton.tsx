@@ -13,7 +13,7 @@ const AlternativeSuperButton: React.FC<ButtonPropsType> =
         <button onClick={onClick}
                 disabled={disabled}
                 className={`${red ? classes.red : ''} ${classes.button}`}
-                value={value}> {children} {restProps} </button>
+                value={value} {...restProps}> {children} </button>
     )
 }
 

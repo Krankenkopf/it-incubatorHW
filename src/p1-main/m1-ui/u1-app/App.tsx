@@ -10,7 +10,8 @@ import krank from "./../../../images/logo512.png"
 import krankenkopf from "./../../../images/krankenkopf(transparent).png"
 import Error404 from "../../../p2-homeworks/h5/pages/Error404";
 import Navbar from './Navbar'
-import NavArrows from "./NavArrows";
+import NavArrow from "./NavArrow";
+import HW6 from '../../../p2-homeworks/h6/HW6';
 
 export const PATH = {
 /*    PRE_JUNIOR: '/pre-junior',*/
@@ -18,7 +19,8 @@ export const PATH = {
     HW2: '/pre-junior/hw2',
     HW3: '/pre-junior/hw3',
     HW4: '/pre-junior/hw4',
-    HW5: '/pre-junior/hw5'
+    HW5: '/pre-junior/hw5',
+    HW6: '/pre-junior/hw6'
 }
 
 const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
@@ -48,18 +50,18 @@ const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
                {/*         <Route path={PATH.PRE_JUNIOR} exact render={() => <Redirect to={PATH.HW1}/>}/>*/}
                         <Route path={PATH.HW1} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrows state={store.getState(1)}
-                                           toNextPage={store.toNextPage.bind(store)}
-                                           toPrevPage={store.toPrevPage.bind(store)}/>
+                                <NavArrow state={store.getState(1)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
                                 <HW1 state={store.getState(1)}
                                      hw1start={store.hw1start.bind(store)}
                                      className={classes.hwWrapper}/>
                             </div>)}/>
                         <Route path={PATH.HW2} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrows state={store.getState(2)}
-                                           toNextPage={store.toNextPage.bind(store)}
-                                           toPrevPage={store.toPrevPage.bind(store)}/>
+                                <NavArrow state={store.getState(2)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
                                 <HW2 state={store.getState(2)}
                                      hw2start={store.hw2start.bind(store)}
                                      filterAffairs={store.filterAffairs.bind(store)}
@@ -68,28 +70,37 @@ const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
                             </div>)}/>
                         <Route path={PATH.HW3} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrows state={store.getState(3)}
-                                           toNextPage={store.toNextPage.bind(store)}
-                                           toPrevPage={store.toPrevPage.bind(store)}/>
+                                <NavArrow state={store.getState(3)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
                                 <HW3 state={store.getState(3)}
                                      hw3start={store.hw3start.bind(store)}/>
                             </div>)}/>
                         <Route path={PATH.HW4} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrows state={store.getState(4)}
-                                           toNextPage={store.toNextPage.bind(store)}
-                                           toPrevPage={store.toPrevPage.bind(store)}/>
+                                <NavArrow state={store.getState(4)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
                                 <HW4 state={store.getState(4)}
                                      hw4start={store.hw4start.bind(store)}
                                      dispatch={store.dispatch.bind(store)}/>
                             </div>)}/>
                         <Route path={PATH.HW5} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrows state={store.getState(5)}
-                                           toNextPage={store.toNextPage.bind(store)}
-                                           toPrevPage={store.toPrevPage.bind(store)}/>
+                                <NavArrow state={store.getState(5)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
                                 <div className={classes.hwWrapper}>
                                     <HW5/>
+                                </div>
+                            </div>)}/>
+                        <Route path={PATH.HW6} exact render={() => (
+                            <div className={classes.contentWrapper}>
+                                <NavArrow state={store.getState(5)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
+                                <div className={classes.hwWrapper}>
+                                    <HW6/>
                                 </div>
                             </div>)}/>
                         <Route render={() => <Error404/>}/>

@@ -1,11 +1,9 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, LabelHTMLAttributes} from 'react'
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import classes from './SuperInputText.module.css'
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-// здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута
-// (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
-type InputTextPropsType = DefaultInputPropsType  & { // и + ещё пропсы которых нет в стандартном инпуте
+type InputTextPropsType = DefaultInputPropsType  & {
     onEnter?: () => void
     error?: string | number
 }

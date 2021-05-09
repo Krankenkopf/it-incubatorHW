@@ -6,7 +6,7 @@
 }
 
 .checkboxBox {
-    display: inline-block;
+    display: flex;
     margin: 0 1em 1em;
 }
 

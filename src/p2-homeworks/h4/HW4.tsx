@@ -67,6 +67,7 @@ const HW4: React.FC<PropsType> = ({state, hw4start, dispatch}) => {
                 </SuperButton>
 
                 {/*----------------------------------------------------*/}
+                <div style={{height: '10px'}}> </div>
 
                 <SuperCheckbox
                     checked={checked}

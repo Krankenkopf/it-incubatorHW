@@ -38,6 +38,11 @@ const Navbar: React.FC<any> = () => {
 				        <span className={classes.breadcrumb__title}>Homework 5</span>
 			        </span>
 				</NavLink>
+				<NavLink to={PATH.HW6} activeClassName={classes.active}>
+			        <span className={classes.breadcrumb__inner}>
+				        <span className={classes.breadcrumb__title}>Homework 6</span>
+			        </span>
+				</NavLink>
             </div>
         </div>
     )

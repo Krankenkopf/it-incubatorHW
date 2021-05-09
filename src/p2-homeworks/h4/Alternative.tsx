@@ -71,23 +71,35 @@ const Alternative: React.FC<PropsType> = ({state, dispatch}) => {
                                     <div className={classes.sometitle}>
                                         You may choose righteous solution in the variants below
                                     </div>
-                                    <AlternativeSuperButton onClick={onChangeText}
-                                                            value={'0.3'}> A:\0.3 </AlternativeSuperButton>
-                                    <AlternativeSuperButton onClick={onChangeText}
-                                                            value={'42'}> B:\42 </AlternativeSuperButton>
-                                    <AlternativeSuperButton onClick={onChangeText}
-                                                            value={'WTF'}> C:\WTF </AlternativeSuperButton>
-                                    <AlternativeSuperButton onClick={onChangeText}
-                                                            value={'0.30000000000000004'}> D:\0.30000000000000004 </AlternativeSuperButton>
-                                    <AlternativeSuperButton onClick={onChangeText} value={'???'}> E:\A | B | C | D |
-                                        E </AlternativeSuperButton>
-                                    <div>
-                                        <AlternativeSuperButton red
-                                                                disabled={!!blockedStatus}
-                                                                onClick={setButtonBlocked}>
-                                            {blockedBtnValue}
-                                        </AlternativeSuperButton>
+                                    <div className={classes.answers}>
+                                        <div className={classes.answersRow}>
+                                            <AlternativeSuperButton onClick={onChangeText}
+                                                                    value={'0.3'}> A:\0.3
+                                            </AlternativeSuperButton>
+                                            <AlternativeSuperButton onClick={onChangeText}
+                                                                    value={'42'}> B:\42
+                                            </AlternativeSuperButton>
+                                            <AlternativeSuperButton onClick={onChangeText}
+                                                                    value={'WTF'}> C:\WTF
+                                            </AlternativeSuperButton>
+                                        </div>
+                                        <div className={classes.answersRow}>
+                                            <AlternativeSuperButton onClick={onChangeText}
+                                                                    value={'0.30000000000000004'}> D:\0.30000000000000004
+                                            </AlternativeSuperButton>
+                                            <AlternativeSuperButton onClick={onChangeText}
+                                                                    value={'???'}> E:\A | B | C | D | E
+                                            </AlternativeSuperButton>
+                                        </div>
+                                        <div className={classes.answersRow}>
+                                            <AlternativeSuperButton red
+                                                                    disabled={!!blockedStatus}
+                                                                    onClick={setButtonBlocked}>
+                                                {blockedBtnValue}
+                                            </AlternativeSuperButton>
+                                        </div>
                                     </div>
+
                                 </div>
                                 : ''}
                         </div>

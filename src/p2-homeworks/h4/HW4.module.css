@@ -14,6 +14,13 @@
     background-color: lavender;
     border-radius: 10px;
 }
+.column :first-child {
+    margin: 0 10px 10px 0;
+}
+
+/*.column * {
+    margin: 0 10px 5px 0;
+}*/
 
 .testSpanError {
     color: blue;
@@ -31,19 +38,18 @@
 .expressionAnswerArea {
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 1fr 50%;
-    grid-template-areas: 'input button'
-    'freespace';
     max-height: 40px;
-    margin-bottom: 2em;
-
+    margin-bottom: 30px;
 }
 
-.expressionAnswerArea input {
-    grid-area: input;
+.answers {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-.expressionAnswerArea button {
-    grid-area: button;
-    margin: 0 0 0 1em;
+.answersRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }

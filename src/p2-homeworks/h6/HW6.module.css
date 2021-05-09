@@ -1,0 +1,14 @@
+.column {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 5% 5%;
+    padding: 5%;
+    background-color: lavender;
+    border-radius: 10px;
+}
+
+.column :first-child {
+    margin: 0 0 10px;
+}
