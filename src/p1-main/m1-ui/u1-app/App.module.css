@@ -2,7 +2,7 @@
     max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 60px 1fr 60px;
+    grid-template-rows: 105px 1fr 60px;
     grid-template-areas:
             'h'
             'pCn'
@@ -102,5 +102,11 @@
         to {
             transform: rotate(360deg);
         }
+    }
+}
+
+@media all and (max-width: 710px) {
+    .appWrapper {
+        grid-template-rows: 75px 1fr 60px;
     }
 }

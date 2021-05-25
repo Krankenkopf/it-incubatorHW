@@ -12,15 +12,19 @@ import Error404 from "../../../p2-homeworks/h5/pages/Error404";
 import Navbar from './Navbar'
 import NavArrow from "./NavArrow";
 import HW6 from '../../../p2-homeworks/h6/HW6';
+import HW7 from "../../../p2-homeworks/h7/HW7";
 
 export const PATH = {
-/*    PRE_JUNIOR: '/pre-junior',*/
+    PRE_JUNIOR: '/pre-junior',
+    JUNIOR: '/junior',
     HW1: '/pre-junior/hw1',
     HW2: '/pre-junior/hw2',
     HW3: '/pre-junior/hw3',
     HW4: '/pre-junior/hw4',
     HW5: '/pre-junior/hw5',
-    HW6: '/pre-junior/hw6'
+    HW6: '/pre-junior/hw6',
+    HW7: '/junior/hw7',
+    HW8: '/junior/hw8'
 }
 
 const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
@@ -47,7 +51,8 @@ const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
                 <div>
                     <Switch>
                         <Route path={'/'} exact render={() => <Redirect to={PATH.HW1}/>}/>
-               {/*         <Route path={PATH.PRE_JUNIOR} exact render={() => <Redirect to={PATH.HW1}/>}/>*/}
+                        <Route path={PATH.PRE_JUNIOR} exact render={() => <Redirect to={PATH.HW1}/>}/>
+                        <Route path={PATH.JUNIOR} exact render={() => <Redirect to={PATH.HW7}/>}/>
                         <Route path={PATH.HW1} exact render={() => (
                             <div className={classes.contentWrapper}>
                                 <NavArrow state={store.getState(1)}
@@ -96,11 +101,20 @@ const App: React.FC<any> = ({store}) => {   // store в App... Ну а чо?
                             </div>)}/>
                         <Route path={PATH.HW6} exact render={() => (
                             <div className={classes.contentWrapper}>
-                                <NavArrow state={store.getState(5)}
+                                <NavArrow state={store.getState(6)}
                                           toNextPage={store.toNextPage.bind(store)}
                                           toPrevPage={store.toPrevPage.bind(store)}/>
                                 <div className={classes.hwWrapper}>
                                     <HW6/>
+                                </div>
+                            </div>)}/>
+                        <Route path={PATH.HW7} exact render={() => (
+                            <div className={classes.contentWrapper}>
+                                <NavArrow state={store.getState(7)}
+                                          toNextPage={store.toNextPage.bind(store)}
+                                          toPrevPage={store.toPrevPage.bind(store)}/>
+                                <div className={classes.hwWrapper}>
+                                    <HW7/>
                                 </div>
                             </div>)}/>
                         <Route render={() => <Error404/>}/>
